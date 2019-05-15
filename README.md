@@ -1,3 +1,7 @@
+<div align="right">
+    Language: :cn:
+    <a title="English" href="README_EN.md">:en:</a>
+</div>
 ## 项目目标
 - 致力于打造一个关于吃货（水果和特产）的指南
 - 让萌新观看并参与大佬们的开发过程
