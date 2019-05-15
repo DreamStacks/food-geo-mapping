@@ -1,7 +1,7 @@
 <div align="right">
     语言: :cn:
     <a title="English" href="README_EN.md">
-    :en:
+    :us:
     </a>
 </div>
 
