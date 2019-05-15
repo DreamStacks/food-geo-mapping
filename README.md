@@ -1,6 +1,8 @@
 <div align="right">
-    Language: :cn:
-    <a title="English" href="README_EN.md">:en:</a>
+    语言: :cn:
+    <a title="English" href="README_EN.md">
+    :en:
+    </a>
 </div>
 
 ## 项目目标

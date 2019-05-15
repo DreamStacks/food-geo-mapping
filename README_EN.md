@@ -1,3 +1,10 @@
+<div align="right">
+    Language: :en:
+    <a title="Chinese" href="README.md">
+    :cn:
+    </a>
+</div>
+
 ## Project objectives
 - work on creating a guide to foodies (fruits and specialties)
 - let meng xin watch and participate in the development process of the big guys
