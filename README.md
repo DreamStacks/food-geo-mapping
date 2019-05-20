@@ -5,7 +5,7 @@
     </a>
 </div>
 
-[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](/LICENSE)
 
 ## 项目目标
 - 致力于打造一个关于吃货（水果和特产）的指南
