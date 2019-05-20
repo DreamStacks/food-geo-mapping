@@ -4,6 +4,9 @@ import { createRouter } from './router'
 import { createStore } from './store'
 import { sync } from 'vuex-router-sync'
 
+import './styles/index.scss' // global css
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+
 // 关闭生产模式下给出的提示
 Vue.config.productionTip = true
 
