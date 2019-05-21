@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:11.14.0
+    filters:
+      branches:
+        only: master
+    steps:
+      - checkout
+      - restore_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependence
+          command: yarn install --frozen-lockfile
+      - run:
+          name: Build
+          command: yarn build
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Lint
+          command: yarn lint
+      - deploy:
+          name: Deploy via ssh
+          command: |
+            mkdir -p ~/.ssh
+            touch ~/.ssh/known_hosts
+            { ssh-keyscan $SSH_IP 2> /dev/null; } >> ~/.ssh/known_hosts
+            if [ ${CIRCLE_BRANCH} = "master" ];then
+                scp -r dist/* $SSH_USER@$SSH_IP:$DEPLOY_PATH
+            else
+                echo "Not master branch"
+            fi
