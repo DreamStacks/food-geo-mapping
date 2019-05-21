@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'food-geo-mapping',
-    script: './server/index.js',
+    script: 'npm run dist',
     watch: true,
     ignore_watch: [
       // 从监控目录中排除

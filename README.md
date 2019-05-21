@@ -1,3 +1,5 @@
+<p align="center"><a href="https://www.ihoey.com" target="_blank" rel="noopener noreferrer"><img width="100" src="https://www.ihoey.com/static/logo.png" alt="吃货指南 logo"></a></p>
+
 <div align="right">
     语言: :cn:
     <a title="English" href="README_EN.md">
@@ -6,6 +8,7 @@
 </div>
 
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](/LICENSE)
+[![CircleCI](https://circleci.com/gh/DreamStacks/food-geo-mapping.svg?style=svg)](https://circleci.com/gh/DreamStacks/food-geo-mapping)
 
 ## 项目目标
 
