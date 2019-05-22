@@ -3,14 +3,9 @@
  */
 // 需要精确匹配
 const pageConfigs = [{
-  name: 'home',
-  regExp: /^\/$/
-},
-{
-  name: 'detail',
-  regExp: /^\/detail\//
-}
-]
+  name: 'page',
+  regExp: /^\/page\//
+}]
 
 // 控制是否开启服务端渲染
 const isEnableServerRender = true
@@ -34,10 +29,10 @@ module.exports = function isServerRenderPage(ctx, cookies) {
   } else if (isEnableUserLoginCheck && userId && userToken) {
     return false
   } else {
-    let isSSR = false
+    let isSSR = true
     pageConfigs.forEach(item => {
-      if (!isSSR) {
-        isSSR = item.regExp.test(ctx.path)
+      if (isSSR) {
+        isSSR = !item.regExp.test(ctx.path)
       }
     })
     return isSSR
