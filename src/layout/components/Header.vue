@@ -1,5 +1,8 @@
 <template>
-  <div class="ds-header">
+  <div class="ds-header container">
+    <router-link to="/home" class="ds-logo">
+      <img src="~static/logo.png" alt="吃货指南" class="ds-logo-img">
+    </router-link>
     <ul class="ds-navs">
       <template v-for="nav in navs">
         <router-link :key="nav.path" :to="nav.path" tag="li" class="ds-nav">{{ nav.name }}</router-link>
@@ -38,12 +41,17 @@ export default {
 .ds-header {
   position: sticky;
   top: 0px;
-  $height: 50px;
+  $height: 60px;
   height: $height;
-  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: #333;
+  .ds-logo {
+    padding: 5px;
+    .ds-logo-img {
+      width: $height - 10px;
+    }
+  }
   .ds-navs {
     margin: 0;
     padding: 0;

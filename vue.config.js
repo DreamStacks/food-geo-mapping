@@ -95,6 +95,7 @@ module.exports = {
       .set('@', resolve('src'))
       .set('@assets', resolve('src/assets'))
       .set('@api', resolve('src/api/modules'))
+      .set('static', resolve('./static'))
 
     // reset public/index.html to static/index.html
     config.plugin('html').tap(args => {
