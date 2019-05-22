@@ -48,8 +48,8 @@ async function ssrRequestHandle(ctx, next) {
   ctx.set('Content-Type', 'text/html')
   const context = {
     title: '吃货指南', // default title
-    description: '',
-    keywords: '',
+    description: '行走的美食百科',
+    keywords: '吃货,指南,吃货指南,美食百科,水果,小吃,地图',
     ssrHeadAddInfo: '',
     url: ctx.url,
     cookies: ctx.cookie || {}, // for cookie using
