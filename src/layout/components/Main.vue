@@ -1,5 +1,5 @@
 <template>
-  <section class="ds-main">
+  <section class="ds-main container">
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>
@@ -17,7 +17,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.ds-main {
-  height: 1000px;
-}
 </style>

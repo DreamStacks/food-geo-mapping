@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background-color: #333;
 }
 
 label {
@@ -54,4 +55,11 @@ div:focus {
     clear: both;
     height: 0;
   }
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 1000px;
 }

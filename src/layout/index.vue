@@ -23,4 +23,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.ds-layout {
+  background-color: #333;
+}
 </style>
