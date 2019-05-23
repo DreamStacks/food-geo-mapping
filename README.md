@@ -30,3 +30,21 @@
 - 以地区查找，一般以省市县（区）为主
 - 尽可能地了解其做法，历史特色
 - 最好说一下一般市场价格
+
+## 主要开发参与人员
+
+### [puppetsheep](https://github.com/puppetsheep)
+
+- 项目发起者、项目规划、UI 设计、文案、部分开发支持
+- 博客：[灵魂只应独行](https://puppetsheep.cn/)
+
+### [ihoey](https://github.com/ihoey)
+
+- 项目负责人、技术支持、架构、项目指导
+- 博客：[梦魇小栈](https://blog.ihoey.com/)
+
+### [Plus Lin](https://github.com/ljh980703)
+
+- 项目参与者、logo、平面设计、部分开发支持
+
+感谢所有已经为 吃货指南 做出贡献的人！
