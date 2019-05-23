@@ -30,3 +30,21 @@
 - search by region, generally based on provinces, cities and counties (districts)
 - learn as much as possible about its practices and historical features
   -better say something about the general market price
+
+## Contributors
+
+### [puppetsheep](https://github.com/puppetsheep)
+
+- Project sponsor, project planning, UI design, copywriting, some development support.
+- blog：[灵魂只应独行](https://puppetsheep.cn/)
+
+### [ihoey](https://github.com/ihoey)
+
+- Project manager, technical support, architecture, project guide.
+- blog：[Dream Stacks](https://blog.ihoey.com/)
+
+### [Plus Lin](https://github.com/ljh980703)
+
+- Project participants, logo, design, parts development support.
+
+Thank you to all the people who have already contributed to food-geo-mapping!
