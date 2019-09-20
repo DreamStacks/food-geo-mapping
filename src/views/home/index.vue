@@ -56,14 +56,14 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 
-$bgColor: rgb(51, 51, 51);
+// $bgColor: rgba(51, 51, 51, 0.1);
 $fontColor1: rgb(56, 186, 238);
 $fontColor2: rgb(255, 240, 1);
-$poemColor: #bbb;
+$poemColor: #cccccc;
 
 .content {
   padding-top: 100px;
-  background: $bgColor;
+  // background: $bgColor;
   display: flex;
   flex-direction: column;
   align-items: center;
