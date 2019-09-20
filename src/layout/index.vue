@@ -1,5 +1,5 @@
 <template>
-  <div class="ds-layout">
+  <div>
     <ds-header />
     <ds-main />
     <ds-footer />
@@ -23,7 +23,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.ds-layout {
-  background-color: #333;
-}
+
 </style>

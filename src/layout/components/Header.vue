@@ -45,7 +45,7 @@ export default {
   height: $height;
   display: flex;
   justify-content: space-between;
-  background-color: #333;
+  // background-color: #333;
   .ds-logo {
     padding: 5px;
     .ds-logo-img {
