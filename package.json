@@ -13,7 +13,8 @@
     "build": "cross-env NODE_DEPLOY=prod yarn build:all",
     "lint": "vue-cli-service lint",
     "dist": "cross-env NODE_DEPLOY=t1 NODE_ENV=production node ./dist/server",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "version": "./node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "dependencies": {
     "axios": "0.19.0",
@@ -39,6 +40,7 @@
     "chalk": "2.4.2",
     "commitizen": "^3.1.1",
     "concurrently": "4.1.0",
+    "conventional-changelog-cli": "^2.0.23",
     "cross-env": "5.2.0",
     "eslint": "5.16.0",
     "eslint-plugin-vue": "5.2.2",
