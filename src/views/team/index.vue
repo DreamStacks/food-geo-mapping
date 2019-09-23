@@ -19,7 +19,6 @@
       </div>
     </el-card>
   </div>
-
 </template>
 
 <style>

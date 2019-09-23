@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'food-geo-mapping',
-    script: 'npm run dist',
+    script: './server/index.js',
     watch: true,
     ignore_watch: [
       // 从监控目录中排除
@@ -14,7 +14,7 @@ module.exports = {
     out_file: './logs/h5.log', // 普通日志路径
     log_date_format: 'YYYY-MM-DD HH:mm:ss',
     merge_logs: true,
-    instances: 2,
+    instances: 1,
     env: {
       NODE_ENV: 'NODE_ENV_VALUE',
       NODE_PORT: 'NODE_PORT_VALUE',
