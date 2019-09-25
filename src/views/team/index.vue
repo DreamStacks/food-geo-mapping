@@ -8,9 +8,19 @@
       <img :src="item.avatar" alt="头像" class="ds-team-avatar">
       <div class="ds-team-des">
         <tr>{{ item.name }}</tr>
-        <tr><a :href="item.github" class="ds-team-link" target="_block" /></tr>
+        <tr>
+          <a
+            :href="item.github"
+            class="ds-team-link"
+            target="_block" />
+        </tr>
         <tr>{{ item.des }}</tr>
-        <tr><a :href="item.website" class="ds-team-link" target="_block" /></tr>
+        <tr>
+          <a
+            :href="item.website"
+            class="ds-team-link"
+            target="_block" />
+        </tr>
       </div>
     </el-card>
   </div>
