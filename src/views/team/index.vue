@@ -3,20 +3,20 @@
     <el-card
       v-for=" item in teamList"
       :key="item.name"
-      class="ds-team-card ds-team-left">
+      class="ds-team-card ds-team-left"
+      :style="{ backgroundColor: item.bgcolor }">
       <img :src="item.avatar" alt="头像" class="ds-team-avatar">
       <div class="ds-team-des">
         <tr>{{ item.name }}</tr>
-        <tr><a :href="item.github" target="_block">{{ item.github }}</a> </tr>
+        <tr><a :href="item.github" class="ds-team-link" target="_block" /></tr>
         <tr>{{ item.des }}</tr>
-        <tr><a :href="item.website" target="_block">{{ item.website }}</a> </tr>
+        <tr><a :href="item.website" class="ds-team-link" target="_block" /></tr>
       </div>
     </el-card>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -45,54 +45,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$ds-color1 : rgba(84, 207, 238, 0.3);
-$ds-color2 : rgba(238, 94, 84, 0.3);
 .ds-team {
-  // display: flex;
+  display: flex;
+  flex-direction: column;
   &-avatar {
     width: 96px;
     height: 96px;
-    margin: 0px 18px 18px 0px;
+    margin-right: 20px;
   }
   &-card {
     border: 0;
     margin: 3% 0;
-    width: 100%;
+    width: 80%;
+    text-align: left;
+    align-self: flex-start;
+    &:nth-child(even) {
+      text-align: right;
+      align-self: flex-end;
+      /deep/ .el-card {
+        &__body {
+          display: flex;
+          flex-direction: row-reverse;
+          .ds-team-avatar {
+            width: 96px;
+            height: 96px;
+            margin-left: 20px;
+            margin-right: 0px;
+          }
+        }
+      }
+    }
   }
+
   &-des {
     color: white;
+    line-height: 24px;
   }
-  &-left {
-    .ds-team {
-      &-avatar,
-      &-des {
-        float: left;
-      }
-      &-des {
-        line-height: 24px;
-      }
-    }
-    &.ds-team-card {
-      text-align: left;
-      background-color: $ds-color1;
+  &-link {
+    &::before {
+      content: attr(href);
     }
   }
-  // &-right {
-  //   .ds-team {
-  //     &-avatar,
-  //     &-des {
-  //       float: right;
-  //     }
-  //     &-des {
-  //       margin-right: 30px;
-  //       text-align: right;
-  //       line-height: 24px;
-  //     }
-  //   }
-  //   &.ds-team-card {
-  //     text-align: right;
-  //     background-color: $ds-color2;
-  //   }
-  // }
+}
+/deep/ .el-card {
+  &__body {
+    flex-direction: row;
+    display: flex;
+  }
 }
 </style>
