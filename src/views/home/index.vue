@@ -21,7 +21,7 @@
 
       <span class="splice" />
 
-      <div class="classify_logo">
+      <div class="classify_logo" @click="gofruit">
         <img :src="classify[1].img">
         <p>{{ classify[1].title }}</p>
       </div>
@@ -49,6 +49,11 @@ export default {
       title_cn: '吃货指南',
       title_en: 'Food-Geo Mapping',
       poem: '所爱隔山海，山海不可平。若为美食往，千里皆可行'
+    }
+  },
+  methods: {
+    gofruit: function() {
+      this.$router.push({ name: 'fruit' })
     }
   }
 }

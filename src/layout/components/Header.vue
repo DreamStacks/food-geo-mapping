@@ -17,6 +17,10 @@ export default {
     return {
       navs: [
         {
+          path: 'fruit',
+          name: '水果'
+        },
+        {
           path: 'home',
           name: '首页'
         },
@@ -28,10 +32,6 @@ export default {
           path: 'about',
           name: '关于'
         }
-        // {
-        //   path: 'language',
-        //   name: '简体中文'
-        // }
       ]
     }
   }
