@@ -1,11 +1,11 @@
 /**
  * 服务端渲染页面配置
  */
-// 需要精确匹配
-const pageConfigs = [{
-  name: 'page',
-  regExp: /^\/page\//
-}]
+// 精确匹配配置
+// const pageConfigs = [{
+//   name: 'page',
+//   regExp: /^\/page\//
+// }]
 
 // 控制是否开启服务端渲染
 const isEnableServerRender = true
@@ -29,12 +29,12 @@ module.exports = function isServerRenderPage(ctx, cookies) {
   } else if (isEnableUserLoginCheck && userId && userToken) {
     return false
   } else {
-    let isSSR = false
-    pageConfigs.forEach(item => {
-      if (!isSSR) {
-        isSSR = item.regExp.test(ctx.path)
-      }
-    })
-    return isSSR
+    // let isSSR = false
+    // pageConfigs.forEach(item => {
+    //   if (!isSSR) {
+    //     isSSR = item.regExp.test(ctx.path)
+    //   }
+    // })
+    return true
   }
 }
