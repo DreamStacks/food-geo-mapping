@@ -8,7 +8,7 @@
 // }]
 
 // 控制是否开启服务端渲染
-const isEnableServerRender = true
+const isEnableServerRender = process.env.NODE_ENV !== 'dev'
 // 控制是否开启用户校验服务端渲染，开启 用户登录走前端渲染，未登录走服务端渲染
 const isEnableUserLoginCheck = false
 
