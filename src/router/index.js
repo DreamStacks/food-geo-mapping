@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Layout from '@/layout'
+import Layout from '@/layout/mainLayout'
+import fruitsLayout from '@/layout/fruitsLayout'
 
 Vue.use(Router)
 
@@ -28,6 +29,17 @@ export function createRouter() {
         component: () => import('@/views/about/index')
       }
       ]
+    },
+    {
+      path: '/fruits',
+      name: 'fruitsLayout',
+      component: fruitsLayout,
+      redirect: '/fruits/home',
+      children: [{
+        path: 'home',
+        name: 'fruitsHome',
+        component: () => import('@/views/fruits/home/index')
+      }]
     }]
   })
 }
