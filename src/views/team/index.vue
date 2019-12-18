@@ -47,14 +47,6 @@ export default {
           des: '项目负责人、技术支持、架构、项目指导',
           website: 'https://blog.ihoey.com',
           bgcolor: 'rgba(238, 94, 84, 0.3)'
-        },
-        {
-          avatar: 'http://images.zhangpeng2k.com/img/github_zhangpeng2k.jpeg',
-          name: 'zhangpeng2k',
-          github: 'https://github.com/zhangpeng2k',
-          des: '项目开发者之一、部分技术开发支持、DreamStacks成员',
-          website: 'https://zhangpeng2k.github.io',
-          bgcolor: 'rgba(239, 253, 182, 0.3)'
         }
       ]
     }
