@@ -26,6 +26,11 @@ export function createRouter() {
         path: 'about',
         name: 'about',
         component: () => import('@/views/about/index')
+      },
+      {
+        path: 'fruits',
+        name: 'fruits',
+        component: () => import('@/views/fruits/index')
       }
       ]
     }]
