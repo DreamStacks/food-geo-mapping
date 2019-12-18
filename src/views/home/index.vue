@@ -21,7 +21,7 @@
 
       <span class="splice" />
 
-      <div class="classify_logo" @click="$router.push('/fruits')">
+      <div class="classify_logo">
         <img :src="classify[1].img">
         <p>{{ classify[1].title }}</p>
       </div>
