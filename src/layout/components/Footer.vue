@@ -1,5 +1,5 @@
 <template>
-  <div class="ds-footer"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2020033963号</a></div>
+  <div class="ds-footer"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2020033963号-1</a></div>
 </template>
 <script>
 export default {
