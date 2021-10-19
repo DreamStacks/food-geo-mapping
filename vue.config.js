@@ -38,8 +38,9 @@ module.exports = {
         // 不要外置化 webpack 需要处理的依赖模块。
         // 你可以在这里添加更多的文件类型。例如，未处理 *.vue 原始文件，
         // 你还应该将修改 `global`（例如 polyfill）的依赖模块列入白名单
-        whitelist: [/\.css$/, /\?vue&type=style/]
-      }) : undefined,
+        allowlist: [/\.css$/, /\?vue&type=style/]
+      })
+      : undefined,
     optimization: {
       splitChunks: TARGET_NODE ? false : undefined
     },
@@ -51,42 +52,41 @@ module.exports = {
         'process.env.config': getDeployConfigDefine()
       })
     ].concat(
-      isDev ? [] : new CopyWebpackPlugin([{
-        from: resolve('./static'),
-        to: resolve('./dist/static'),
-        toType: 'dir',
-        ignore: ['index.html', '.DS_Store']
-      },
-      {
-        from: resolve('./server'),
-        to: resolve('./dist/server'),
-        toType: 'dir',
-        ignore: [
-          'setup-dev-server.js',
-          'pm2.config.template.js',
-          '.DS_Store'
-        ]
-      },
-      {
-        from: resolve('./server/pm2.config.template.js'),
-        to: resolve('./dist/server/pm2.config.js'),
-        transform: function(content) {
-          return content
-            .toString()
-            .replace('NODE_ENV_VALUE', process.env.NODE_ENV)
-            .replace('NODE_PORT_VALUE', process.env.NODE_PORT)
-            .replace('NODE_DEPLOY_VALUE', process.env.NODE_DEPLOY)
-        }
-      },
-      {
-        from: resolve('./package.json'),
-        to: resolve('./dist')
-      },
-      {
-        from: resolve('./yarn.lock'),
-        to: resolve('./dist')
-      }
-      ])
+      isDev
+        ? []
+        : new CopyWebpackPlugin([
+          {
+            from: resolve('./static'),
+            to: resolve('./dist/static'),
+            toType: 'dir',
+            ignore: ['index.html', '.DS_Store']
+          },
+          {
+            from: resolve('./server'),
+            to: resolve('./dist/server'),
+            toType: 'dir',
+            ignore: ['setup-dev-server.js', 'pm2.config.template.js', '.DS_Store']
+          },
+          {
+            from: resolve('./server/pm2.config.template.js'),
+            to: resolve('./dist/server/pm2.config.js'),
+            transform: function(content) {
+              return content
+                .toString()
+                .replace('NODE_ENV_VALUE', process.env.NODE_ENV)
+                .replace('NODE_PORT_VALUE', process.env.NODE_PORT)
+                .replace('NODE_DEPLOY_VALUE', process.env.NODE_DEPLOY)
+            }
+          },
+          {
+            from: resolve('./package.json'),
+            to: resolve('./dist')
+          },
+          {
+            from: resolve('./yarn.lock'),
+            to: resolve('./dist')
+          }
+        ])
     )
   }),
   chainWebpack: config => {
