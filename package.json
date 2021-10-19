@@ -1,6 +1,6 @@
 {
   "name": "food-geo-mapping",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "dev:client": "vue-cli-service serve --mode dev",
