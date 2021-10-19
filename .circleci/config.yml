@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:11.14.0
+      - image: circleci/node:14.18.1
     filters:
       branches:
         only: master
