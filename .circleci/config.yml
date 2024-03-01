@@ -11,6 +11,9 @@ jobs:
       - restore_cache:
           key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
+          name: Change certificate check
+          command: yarn config set strict-ssl false
+      - run:
           name: Install Dependence
           command: yarn install --frozen-lockfile
       - run:
