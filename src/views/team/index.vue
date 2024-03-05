@@ -80,7 +80,7 @@ export default {
     &:nth-child(even) {
       text-align: right;
       align-self: flex-end;
-      /deep/ .el-card {
+      ::v-deep .el-card {
         &__body {
           display: flex;
           flex-direction: row-reverse;
@@ -105,7 +105,7 @@ export default {
     }
   }
 }
-/deep/ .el-card {
+::v-deep .el-card {
   &__body {
     flex-direction: row;
     display: flex;

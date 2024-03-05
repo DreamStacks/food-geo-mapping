@@ -9,6 +9,51 @@ const resolve = file => path.resolve(__dirname, file)
 const TARGET_NODE = process.env.BUILD_TARGET === 'node'
 const target = TARGET_NODE ? 'server' : 'client'
 const isDev = process.env.NODE_ENV && process.env.NODE_ENV.indexOf('dev') > -1
+
+const devPlugins = () => {
+  return new CopyWebpackPlugin([
+    {
+      from: resolve('./static'),
+      to: resolve('./dist/static'),
+      toType: 'dir',
+      ignore: ['index.html', '.DS_Store']
+    },
+    {
+      from: resolve('./server'),
+      to: resolve('./dist/server'),
+      toType: 'dir',
+      ignore: ['setup-dev-server.js', 'pm2.config.template.js', '.DS_Store']
+    },
+    {
+      from: resolve('./server/pm2.config.template.js'),
+      to: resolve('./dist/server/pm2.config.js'),
+      transform: content =>
+        content
+          .toString()
+          .replace('NODE_ENV_VALUE', process.env.NODE_ENV)
+          .replace('NODE_PORT_VALUE', process.env.NODE_PORT)
+          .replace('NODE_DEPLOY_VALUE', process.env.NODE_DEPLOY)
+    },
+    {
+      from: resolve('./package.json'),
+      to: resolve('./dist')
+    },
+    {
+      from: resolve('./pnpm-lock.yaml'),
+      to: resolve('./dist')
+    }
+  ])
+}
+
+const nodeExternalsFunc = () => {
+  return nodeExternals({
+    // 不要外置化 webpack 需要处理的依赖模块。
+    // 你可以在这里添加更多的文件类型。例如，未处理 *.vue 原始文件，
+    // 你还应该将修改 `global`（例如 polyfill）的依赖模块列入白名单
+    allowlist: [/\.css$/, /\?vue&type=style/]
+  })
+}
+
 module.exports = {
   publicPath: deployConfig[`${isDev ? 'dev' : 'build'}`].assetsPublicPath,
   assetsDir: 'static',
@@ -33,14 +78,7 @@ module.exports = {
     // https://github.com/liady/webpack-node-externals
     // 外置化应用程序依赖模块。可以使服务器构建速度更快，
     // 并生成较小的 bundle 文件。
-    externals: TARGET_NODE
-      ? nodeExternals({
-        // 不要外置化 webpack 需要处理的依赖模块。
-        // 你可以在这里添加更多的文件类型。例如，未处理 *.vue 原始文件，
-        // 你还应该将修改 `global`（例如 polyfill）的依赖模块列入白名单
-        allowlist: [/\.css$/, /\?vue&type=style/]
-      })
-      : undefined,
+    externals: TARGET_NODE ? nodeExternalsFunc : undefined,
     optimization: {
       splitChunks: TARGET_NODE ? false : undefined
     },
@@ -51,43 +89,7 @@ module.exports = {
         'process.env.NODE_DEPLOY': `"${process.env.NODE_DEPLOY}"`,
         'process.env.config': getDeployConfigDefine()
       })
-    ].concat(
-      isDev
-        ? []
-        : new CopyWebpackPlugin([
-          {
-            from: resolve('./static'),
-            to: resolve('./dist/static'),
-            toType: 'dir',
-            ignore: ['index.html', '.DS_Store']
-          },
-          {
-            from: resolve('./server'),
-            to: resolve('./dist/server'),
-            toType: 'dir',
-            ignore: ['setup-dev-server.js', 'pm2.config.template.js', '.DS_Store']
-          },
-          {
-            from: resolve('./server/pm2.config.template.js'),
-            to: resolve('./dist/server/pm2.config.js'),
-            transform: function(content) {
-              return content
-                .toString()
-                .replace('NODE_ENV_VALUE', process.env.NODE_ENV)
-                .replace('NODE_PORT_VALUE', process.env.NODE_PORT)
-                .replace('NODE_DEPLOY_VALUE', process.env.NODE_DEPLOY)
-            }
-          },
-          {
-            from: resolve('./package.json'),
-            to: resolve('./dist')
-          },
-          {
-            from: resolve('./yarn.lock'),
-            to: resolve('./dist')
-          }
-        ])
-    )
+    ].concat(isDev ? devPlugins() : [])
   }),
   chainWebpack: config => {
     // alias
@@ -115,10 +117,7 @@ module.exports = {
             const rule = config.module.rule(lang).oneOf(type)
             rule.uses.delete('extract-css-loader')
             // Critical CSS
-            rule
-              .use('vue-style')
-              .loader('vue-style-loader')
-              .before('css-loader')
+            rule.use('vue-style').loader('vue-style-loader').before('css-loader')
           }
         }
         config.plugins.delete('extract-css')
@@ -156,7 +155,7 @@ module.exports = {
 // deploy config converter
 function getDeployConfigDefine() {
   const config = {}
-  Object.keys(deployConfig.env).forEach(function(key) {
+  Object.keys(deployConfig.env).forEach(key => {
     config[key] = `"${deployConfig.env[key]}"`
   })
   return config

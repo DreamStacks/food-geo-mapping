@@ -1,5 +1,5 @@
 import axios from 'axios'
-import qs from 'querystring'
+import qs from 'qs'
 // const TARGET_SERVER = process.env.VUE_ENV === 'server'
 // const cnodeBaseUrl = TARGET_SERVER ? process.env.config.CNODE_HOST : '/feapi'
 

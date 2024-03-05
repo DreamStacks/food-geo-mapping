@@ -9,20 +9,20 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: Install Dependence
-          command: yarn install --frozen-lockfile
+          command: pnpm install
       - run:
           name: Build
-          command: yarn build
+          command: pnpm build
       - save_cache:
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            - ~/.cache/yarn
+            - ~/.cache/pnpm
       - run:
           name: Lint
-          command: yarn lint
+          command: pnpm lint
       - deploy:
           name: Deploy via ssh
           command: |
