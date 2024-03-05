@@ -6,11 +6,8 @@ settings:
 
 dependencies:
   axios:
-    specifier: 0.23.0
-    version: 0.23.0
-  core-js:
-    specifier: ^3.22.2
-    version: 3.22.2
+    specifier: 1.6.0
+    version: 1.6.0
   element-ui:
     specifier: ^2.15.6
     version: 2.15.8(vue@2.6.14)
@@ -57,7 +54,7 @@ devDependencies:
     version: 7.17.0(@babel/core@7.17.9)(eslint@5.16.0)
   '@vue/cli-plugin-babel':
     specifier: ^5.0.4
-    version: 5.0.4(@vue/cli-service@5.0.4)(core-js@3.22.2)(vue@2.6.14)
+    version: 5.0.4(@vue/cli-service@5.0.4)(vue@2.6.14)
   '@vue/cli-plugin-eslint':
     specifier: ^5.0.4
     version: 5.0.4(@vue/cli-service@5.0.4)(eslint@5.16.0)
@@ -1706,7 +1703,7 @@ packages:
       svg-tags: 1.0.0
     dev: true
 
-  /@vue/babel-preset-app@5.0.4(@babel/core@7.17.9)(core-js@3.22.2)(vue@2.6.14):
+  /@vue/babel-preset-app@5.0.4(@babel/core@7.17.9)(vue@2.6.14):
     resolution: {integrity: sha512-vf4KqrmuOSnoEYGUiHPeMoxhh6wpiucLWXISn7xYFU80pK1lqcuhbl6tpurAanUIyRO/ENDUQBH7RAdbLNq1bA==}
     peerDependencies:
       '@babel/core': '*'
@@ -1731,7 +1728,6 @@ packages:
       '@vue/babel-plugin-jsx': 1.1.1(@babel/core@7.17.9)
       '@vue/babel-preset-jsx': 1.2.4(@babel/core@7.17.9)
       babel-plugin-dynamic-import-node: 2.3.3
-      core-js: 3.22.2
       core-js-compat: 3.22.2
       semver: 7.3.7
       vue: 2.6.14
@@ -1820,13 +1816,13 @@ packages:
     resolution: {integrity: sha512-ZTLAAydILjvx0XHUGSNu/cQDpmvLTMYUutDf2vf6XGkSWYqncQ6RwkeMSQhvQNlgpa/ovwIgrlGxLoojFRwdVg==}
     dev: true
 
-  /@vue/cli-plugin-babel@5.0.4(@vue/cli-service@5.0.4)(core-js@3.22.2)(vue@2.6.14):
+  /@vue/cli-plugin-babel@5.0.4(@vue/cli-service@5.0.4)(vue@2.6.14):
     resolution: {integrity: sha512-413ZwOWLtgw5vWJoMbrv36crW3qTas4Iru8sU7cRb0IqEZbS28R9X4PVtO8Pek2NYFbrs2XKRYOB7GblB6hVqg==}
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
       '@babel/core': 7.17.9
-      '@vue/babel-preset-app': 5.0.4(@babel/core@7.17.9)(core-js@3.22.2)(vue@2.6.14)
+      '@vue/babel-preset-app': 5.0.4(@babel/core@7.17.9)(vue@2.6.14)
       '@vue/cli-service': 5.0.4(@babel/core@7.17.9)(sass-loader@10.2.1)(vue-template-compiler@2.6.14)
       '@vue/cli-shared-utils': 5.0.4
       babel-loader: 8.2.5(@babel/core@7.17.9)(webpack@5.72.0)
@@ -2432,6 +2428,10 @@ packages:
       lodash: 4.17.21
     dev: true
 
+  /asynckit@0.4.0:
+    resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
+
   /at-least-node@1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
@@ -2459,10 +2459,12 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /axios@0.23.0:
-    resolution: {integrity: sha512-NmvAE4i0YAv5cKq8zlDoPd1VLKAqX5oLuZKs8xkJa4qi6RGn0uhCYFjWtHHC9EM/MwOwYWOs53W+V0aqEXq1sg==}
+  /axios@1.6.0:
+    resolution: {integrity: sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==}
     dependencies:
-      follow-redirects: 1.14.9(debug@4.3.4)
+      follow-redirects: 1.15.5
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -2992,6 +2994,13 @@ packages:
     resolution: {integrity: sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==}
     dev: true
 
+  /combined-stream@1.0.8:
+    resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      delayed-stream: 1.0.0
+    dev: false
+
   /commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
     dev: true
@@ -3478,10 +3487,6 @@ packages:
     requiresBuild: true
     dev: false
 
-  /core-js@3.22.2:
-    resolution: {integrity: sha512-Z5I2vzDnEIqO2YhELVMFcL1An2CIsFe9Q7byZhs8c/QxummxZlAHw33TUHbIte987LkisOgL0LwQ1P9D6VISnA==}
-    requiresBuild: true
-
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
@@ -3879,6 +3884,11 @@ packages:
       pify: 3.0.0
       rimraf: 2.7.1
     dev: true
+
+  /delayed-stream@1.0.0:
+    resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
+    engines: {node: '>=0.4.0'}
+    dev: false
 
   /delegates@1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
@@ -4618,11 +4628,31 @@ packages:
         optional: true
     dependencies:
       debug: 4.3.4
+    dev: true
+
+  /follow-redirects@1.15.5:
+    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /for-in@1.0.2:
     resolution: {integrity: sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /form-data@4.0.0:
+    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
+    engines: {node: '>= 6'}
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
+    dev: false
 
   /fraction.js@4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
@@ -7290,6 +7320,10 @@ packages:
       forwarded: registry.nlark.com/forwarded@0.2.0
       ipaddr.js: 1.9.1
     dev: true
+
+  /proxy-from-env@1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+    dev: false
 
   /pseudomap@1.0.2:
     resolution: {integrity: sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==}
