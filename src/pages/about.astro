@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { fetchChangeLog } from "../api";
+
+interface VersionItem {
+  version: string;
+  date: string;
+  subTitle: string;
+  list: string[];
+}
+
+const aboutColorList = ["rgba(104, 123, 209, 0.4)", "rgba(204, 113, 77, 0.4)"];
+
+function base642Utf8(data: string) {
+  return decodeURIComponent(encodeURIComponent(atob(data)));
+}
+
+function md2Object(data: string[]) {
+  const versionList: VersionItem[] = [];
+
+  data.forEach((e) => {
+    let item: VersionItem = {
+      version: "",
+      date: "",
+      subTitle: "",
+      list: [],
+    };
+    if (e.includes("## [")) {
+      versionList.push(item);
+      item.version = e.match(/\d.\d.\d/)?.[0] || "";
+      item.date = e.match(/....-..-../)?.[0] || "";
+    }
+    if (e.includes("### [")) {
+      item.subTitle = e.slice(4);
+    }
+    if (e.includes("* ")) {
+      if (!item.list) item.list = [];
+      item.list.push(e.match(/\s.* /)?.[0] || "");
+    }
+  });
+
+  return versionList;
+}
+
+const data = await fetchChangeLog();
+const changelog = base642Utf8(data.content).split("\n");
+const aboutData: VersionItem[] = md2Object(changelog);
+---
+
+<Layout title={"关于我们"}>
+  <div class='ds-about'>
+    <el-timeline>
+      {
+        aboutData.map((item, index) => {
+          return (
+            <el-timeline-item key={item.date} timestamp={item.date} placement='top'>
+              <el-card class='ds-about-card' style={{ backgroundColor: aboutColorList[index] }}>
+                <h2>Version {item.version}</h2>
+                <ul class='ds-about-card-lists'>
+                  {item.list.map((e) => {
+                    <li class='ds-about-card-li'>{e}</li>;
+                  })}
+                </ul>
+              </el-card>
+            </el-timeline-item>
+          );
+        })
+      }
+    </el-timeline>
+  </div>
+</Layout>
+
+<style lang='scss' scoped>
+  .ds-about {
+    margin-top: 100px;
+    text-align: left;
+    &-card {
+      border: 0;
+      color: rgb(255, 255, 255);
+      &-li {
+        color: rgb(221, 221, 221);
+        line-height: 24px;
+        font-size: 18px;
+      }
+    }
+  }
+</style>

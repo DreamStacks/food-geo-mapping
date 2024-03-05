@@ -3,80 +3,21 @@
   "version": "1.0.3",
   "private": true,
   "scripts": {
-    "dev:client": "vue-cli-service serve --mode dev",
-    "dev:ssr": "cross-env BUILD_TARGET=node NODE_ENV=dev node ./server",
-    "dev:all": "concurrently \"vue-cli-service serve --mode dev --port 8081\" \"pnpm dev:ssr\" ",
-    "dev": "cross-env NODE_DEPLOY=dev pnpm dev:all",
-    "build:client": "vue-cli-service build",
-    "build:ssr": "cross-env BUILD_TARGET=node vue-cli-service build --no-clean",
-    "build:all": "pnpm build:client && cross-env NODE_PORT=9080 pnpm build:ssr",
-    "build": "cross-env NODE_DEPLOY=prod pnpm build:all",
-    "lint": "vue-cli-service lint",
-    "dist": "cross-env NODE_DEPLOY=t1 NODE_ENV=production node ./dist/server",
-    "commit": "git-cz",
-    "version": "./node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "axios": "1.6.0",
-    "element-ui": "^2.15.6",
-    "koa": "^2.13.3",
-    "koa-cookie": "^1.0.0",
-    "koa-morgan": "^1.0.1",
-    "koa-mount": "^4.0.0",
-    "koa-static": "^5.0.0",
-    "normalize.css": "^8.0.1",
-    "qs": "^6.10.3",
-    "vue": "^2.6.14",
-    "vue-router": "^3.5.2",
-    "vue-server-renderer": "^2.6.14",
-    "vuex": "^3.6.2",
-    "vuex-router-sync": "^5.0.0"
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.0.0",
-    "@vue/cli-plugin-babel": "^5.0.4",
-    "@vue/cli-plugin-eslint": "^5.0.4",
-    "@vue/cli-service": "^5.0.4",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "chalk": "^4.1.2",
-    "commitizen": "^4.2.4",
-    "concurrently": "^6.3.0",
-    "conventional-changelog-cli": "^2.1.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^7.19.1",
-    "koa-proxies": "^0.12.1",
-    "lint-staged": "^8.1.7",
-    "lodash.merge": "4.6.2",
-    "lru-cache": "6.0.0",
-    "sass": "^1.50.1",
-    "sass-loader": "^10",
-    "vue-style-loader": "^4.1.3",
-    "vue-template-compiler": "2.6.14",
-    "webpack-node-externals": "3.0.0",
-    "yorkie": "^2.0.0"
+    "@astrojs/check": "^0.5.6",
+    "astro": "^4.4.11",
+    "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=8.9",
-    "npm": ">= 3.0.0"
+    "node": ">=18"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "devDependencies": {
+    "sass": "^1.71.1"
   }
 }
