@@ -40,10 +40,12 @@ const poem = "所爱隔山海，山海不可平。若为美食往，千里皆可
       {
         classify.map((item) => {
           return (
-            <div class='classify_logo'>
-              <img src={item.img} />
-              <p>{item.title}</p>
-            </div>
+            <a href={item.path}>
+              <div class='classify_logo'>
+                <img src={item.img} />
+                <p>{item.title}</p>
+              </div>
+            </a>
           );
         })
       }
