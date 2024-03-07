@@ -1,7 +1,4 @@
 name: Only Build
-branding:
-  icon: "arrow-up-right"
-  color: "purple"
 
 on:
   # Trigger the workflow every time you push to the `main` branch
