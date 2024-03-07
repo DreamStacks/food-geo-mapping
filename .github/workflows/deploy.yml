@@ -1,4 +1,7 @@
 name: Only Build
+branding:
+  icon: "arrow-up-right"
+  color: "purple"
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -20,10 +23,19 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
-          version: "18"
+          version: "latest"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "pnpm"
+          cache-dependency-path: "pnpm-lock.yaml"
+
       - name: Install
         shell: "bash"
         working-directory: "."
