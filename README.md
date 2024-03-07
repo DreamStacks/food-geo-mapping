@@ -1,4 +1,4 @@
-<p align="center"><a href="https://www.ihoey.com" target="_blank" rel="noopener noreferrer"><img width="100" src="./static/logo.png" alt="吃货指南 logo"></a></p>
+<p align="center"><a href="https://www.ihoey.com" target="_blank" rel="noopener noreferrer"><img width="100" src="./public/logo.png" alt="吃货指南 logo"></a></p>
 
 <div align="right">
     语言: :cn:

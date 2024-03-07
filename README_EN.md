@@ -1,4 +1,4 @@
-<p align="center"><a href="https://www.ihoey.com" target="_blank" rel="noopener noreferrer"><img width="100" src="https://www.ihoey.com/static/logo.png" alt="food-geo-mapping logo"></a></p>
+<p align="center"><a href="https://www.ihoey.com" target="_blank" rel="noopener noreferrer"><img width="100" src="./public/logo.png" alt="food-geo-mapping logo"></a></p>
 
 <div align="right">
     Language: :us:
